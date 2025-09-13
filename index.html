@@ -20,7 +20,7 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 20px;
         }
@@ -89,26 +89,32 @@
         .header-content {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
             gap: 40px;
             flex-wrap: wrap;
         }
 
         .photo-container {
             position: relative;
+            flex-shrink: 0;
         }
 
         .nadiya-photo {
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  background-image: url('nadiya-photo.jpg');
-  background-size: cover;
-  background-position: center;
-}
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background-image: url('nadiya-photo.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .text-content {
+            flex: 1;
+            min-width: 300px;
+        }
 
         .text-content h1 {
-            font-size: 3.5rem;
+            font-size: 4.5rem;
             color: #2c3e50;
             margin-bottom: 10px;
             font-weight: 300;
@@ -120,6 +126,22 @@
             color: #667eea;
             margin-bottom: 20px;
             font-weight: 500;
+        }
+
+        .student-container {
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .student-photo {
+            width: 500px;
+            height: 500px;
+            border-radius: 20px;
+            background-image: url('student1.jpg');
+            background-size: cover;
+            background-position: center right;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            border: 4px solid rgba(102, 126, 234, 0.2);
         }
 
         .experience-badge {
@@ -257,16 +279,6 @@
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
         }
 
-        .student-photo {
-  width: 100%;
-  max-width: 400px;
-  height: 300px;
-  background-image: url('student-photo.jpg');
-  background-size: cover;
-  background-position: center;
-  border-radius: 1rem;
-}
-
         .contact-section {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -388,6 +400,18 @@
             display: block;
         }
 
+        @media (max-width: 1200px) {
+            .header-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .student-photo {
+                width: 400px;
+                height: 400px;
+            }
+        }
+
         @media (max-width: 768px) {
             .text-content h1 {
                 font-size: 2.5rem;
@@ -416,14 +440,9 @@
             }
 
             .student-photo {
-  width: 100%;
-  max-width: 400px;
-  height: 300px;
-  background-image: url('student-photo.jpg');
-  background-size: cover;
-  background-position: center;
-  border-radius: 1rem;
-}
+                width: 300px;
+                height: 300px;
+            }
         }
 
         .photo-upload-note {
@@ -457,13 +476,15 @@
                 <div class="header-content">
                     <div class="photo-container">
                         <div class="nadiya-photo"></div>
-                        
                     </div>
                     <div class="text-content">
                         <h1>Nadiya</h1>
                         <p class="subtitle">Experienced Math Tutor</p>
                         <div class="experience-badge">8 Years of Tutoring Excellence</div>
                         <p style="margin-top: 15px; font-size: 1.1rem; color: #555;">Based in the UK for 20 years • Online lessons available worldwide</p>
+                    </div>
+                    <div class="student-container">
+                        <div class="student-photo"></div>
                     </div>
                 </div>
             </header>
@@ -497,8 +518,6 @@ Language of instruction: English or Russian with English terminology.</p>
                 </div>
             </main>
 
-            
-
             <section class="contact-section">
                 <h2>Ready to Excel in Mathematics?</h2>
                 <p style="font-size: 1.2rem; color: #666; margin-bottom: 30px;">Book your online lesson today and join my successful students!</p>
@@ -530,13 +549,15 @@ Language of instruction: English or Russian with English terminology.</p>
                 <div class="header-content">
                     <div class="photo-container">
                         <div class="nadiya-photo"></div>
-                        
                     </div>
                     <div class="text-content">
                         <h1>Надя</h1>
                         <p class="subtitle">Эксперт-преподаватель математики</p>
                         <div class="experience-badge">8 лет успешного преподавания</div>
                         <p style="margin-top: 15px; font-size: 1.1rem; color: #555;">Проживаю в Великобритании 20 лет • Онлайн-уроки </p>
+                    </div>
+                    <div class="student-container">
+                        <div class="student-photo"></div>
                     </div>
                 </div>
             </header>
@@ -570,10 +591,8 @@ Language of instruction: English or Russian with English terminology.</p>
                 </div>
             </main>
 
-            
-
             <section class="contact-section">
-                <h2>Готовы преуспеть в математике?</h2>
+                <h2>Стань сильнее в математике!</h2>
                 <p style="font-size: 1.2rem; color: #666; margin-bottom: 30px;">Забронируйте онлайн-урок сегодня и присоединитесь к моим успешным ученикам!</p>
                 
                 <div class="contact-methods">
