@@ -4,6 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nadiya - Expert Maths Tutor | Online & UK Based</title>
+    <!--
+    WEBSITE MODIFICATION HISTORY - March 17, 2026
+    
+    Changes made today:
+    1. Language switcher repositioned to horizontal center of screen (using left:0, right:0, justify-content:center)
+    2. Language button text changed from "EN"/"RU" to "English"/"Русский язык" (removed flag emojis)
+    3. Mobile responsiveness fixes (768px and below):
+       - Fixed text alignment issues in header (Nadiya, subtitle, experience badge, description)
+       - Fixed overflow issues - text was extending beyond screen width
+       - Key fix: removed min-width:300px constraint on mobile for .text-content
+       - Added overflow-wrap and word-wrap to prevent text cutoff
+       - Centered all header content elements
+       - Made text sizes readable: subtitle 1.1rem, paragraph 1.1rem, badge 1rem
+    4. Fixed corrupted checkmark character (✓) in subjects list
+    5. Contact buttons (WhatsApp/Email) centered and properly sized for mobile
+    6. All elements now responsive and properly aligned on both desktop and mobile
+    
+    Key CSS techniques used:
+    - !important flags to override complex flexbox behavior on mobile
+    - box-sizing: border-box throughout
+    - overflow-x: hidden on container
+    - min-width: 0 !important on text-content for mobile (critical fix)
+    - max-width: 100% on all text elements
+    - text-align: center with margin: 0 auto for centering
+    
+    To upload photos:
+    - nadiya-photo.jpg (250x250px circular photo of Nadiya)
+    - student1.jpg (500x500px photo of student at computer)
+    -->
     <style>
         * {
             margin: 0;
@@ -28,9 +57,11 @@
         .language-switcher {
             position: fixed;
             top: 20px;
-            right: 20px;
+            left: 0;
+            right: 0;
             z-index: 1000;
             display: flex;
+            justify-content: center;
             gap: 10px;
         }
 
@@ -68,6 +99,8 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+            max-width: 100%;
+            box-sizing: border-box;
         }
 
         .header::before {
@@ -92,6 +125,8 @@
             justify-content: space-between;
             gap: 40px;
             flex-wrap: wrap;
+            max-width: 100%;
+            box-sizing: border-box;
         }
 
         .photo-container {
@@ -111,6 +146,10 @@
         .text-content {
             flex: 1;
             min-width: 300px;
+            text-align: center;
+            max-width: 100%;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
         }
 
         .text-content h1 {
@@ -119,6 +158,7 @@
             margin-bottom: 10px;
             font-weight: 300;
             letter-spacing: -1px;
+            text-align: center;
         }
 
         .text-content .subtitle {
@@ -126,6 +166,7 @@
             color: #667eea;
             margin-bottom: 20px;
             font-weight: 500;
+            text-align: center;
         }
 
         .student-container {
@@ -156,6 +197,9 @@
             box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
             transform: translateY(0);
             transition: all 0.3s ease;
+            text-align: center;
+            max-width: 100%;
+            word-wrap: break-word;
         }
 
         .experience-badge:hover {
@@ -311,8 +355,9 @@
             font-size: 1.1rem;
             transition: all 0.3s ease;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 10px;
+            gap: 5px;
             box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
         }
 
@@ -410,11 +455,121 @@
                 width: 400px;
                 height: 400px;
             }
+            
+            .language-switcher {
+                left: 0;
+                right: 0;
+                justify-content: center;
+                gap: 8px;
+            }
+            
+            .lang-btn {
+                padding: 6px 12px;
+                font-size: 0.9rem;
+            }
         }
 
         @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+                max-width: 100%;
+                overflow-x: hidden;
+            }
+            
+            .header {
+                padding: 20px 10px;
+                margin: 0 5px 20px 5px;
+                width: calc(100% - 10px);
+                box-sizing: border-box;
+            }
+            
+            .header-content {
+                display: block !important;
+                text-align: center !important;
+                max-width: 100%;
+                overflow: hidden;
+            }
+            
+            .photo-container {
+                margin: 0 auto 20px auto;
+                text-align: center;
+                max-width: 100%;
+            }
+            
+            .text-content {
+                margin: 0 auto;
+                text-align: center !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                min-width: 0 !important;
+                padding: 0 10px;
+                box-sizing: border-box;
+                overflow: hidden;
+            }
+            
             .text-content h1 {
-                font-size: 2.5rem;
+                font-size: 2.5rem !important;
+                text-align: center !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                width: 100%;
+                max-width: 100%;
+                overflow-wrap: break-word;
+            }
+            
+            .text-content .subtitle {
+                text-align: center !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                font-size: 1.1rem !important;
+                width: 100%;
+                max-width: 100%;
+                overflow-wrap: break-word;
+            }
+            
+            .text-content p {
+                text-align: center !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                font-size: 1.1rem !important;
+                width: 100%;
+                max-width: 100%;
+                padding: 0;
+                box-sizing: border-box;
+                overflow-wrap: break-word;
+                word-wrap: break-word;
+            }
+            
+            .experience-badge {
+                display: block !important;
+                margin: 10px auto !important;
+                padding: 10px 15px !important;
+                font-size: 1rem !important;
+                max-width: 100% !important;
+                width: auto !important;
+                text-align: center !important;
+                box-sizing: border-box;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+            
+            .student-container {
+                margin: 20px auto 0 auto;
+                text-align: center;
+                max-width: 100%;
+            }
+
+            .student-photo {
+                width: 90%;
+                max-width: 300px;
+                height: 300px;
+                margin: 0 auto;
+            }
+            
+            .nadiya-photo {
+                width: 200px;
+                height: 200px;
+                margin: 0 auto;
             }
 
             .main-content {
@@ -424,6 +579,19 @@
             .contact-methods {
                 flex-direction: column;
                 align-items: center;
+                width: 100%;
+                gap: 15px;
+            }
+            
+            .contact-item {
+                width: 90%;
+                max-width: 100%;
+                justify-content: center;
+                text-align: center;
+                font-size: 1rem;
+                padding: 15px 10px;
+                word-break: break-word;
+                box-sizing: border-box;
             }
 
             .languages {
@@ -433,15 +601,24 @@
             .platform-tags {
                 justify-content: center;
             }
-
-            .header-content {
-                flex-direction: column;
-                gap: 20px;
+            
+            .language-switcher {
+                position: fixed;
+                top: 15px;
+                left: 0;
+                right: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 6px;
+                padding: 0;
+                margin: 0;
             }
-
-            .student-photo {
-                width: 300px;
-                height: 300px;
+            
+            .lang-btn {
+                padding: 5px 10px;
+                font-size: 0.8rem;
+                border-radius: 20px;
             }
         }
 
@@ -459,8 +636,8 @@
 </head>
 <body>
     <div class="language-switcher">
-        <button class="lang-btn active" onclick="switchLanguage('en')">🇬🇧 EN</button>
-        <button class="lang-btn" onclick="switchLanguage('ru')">🇷🇺 RU</button>
+        <button class="lang-btn active" onclick="switchLanguage('en')">English</button>
+        <button class="lang-btn" onclick="switchLanguage('ru')">Русский</button>
     </div>
 
     <div class="floating-elements">
@@ -481,7 +658,7 @@
                         <h1>Nadiya</h1>
                         <p class="subtitle">Experienced Math Tutor</p>
                         <div class="experience-badge">8 Years of Tutoring Excellence</div>
-                        <p style="margin-top: 15px; font-size: 1.1rem; color: #555;">Based in the UK for 20 years • Online lessons available worldwide</p>
+                        <p style="margin-top: 15px; font-size: 1.1rem; color: #555; text-align: center;">Based in the UK for 20 years • Online lessons available worldwide</p>
                     </div>
                     <div class="student-container">
                         <div class="student-photo"></div>
@@ -525,20 +702,26 @@ Language of instruction: English or Russian with English terminology.</p>
                 <div class="contact-methods">
                     <a href="https://wa.me/447402532488" class="contact-item">
                         <span>📱</span>
-                        WhatsApp: +44 7402 532488
+                        <span>WhatsApp:</span>
+                        <span>+44 7402 532488</span>
+                        <span style="font-size: 0.9rem; font-style: italic;">Text only, please</span>
                     </a>
-                    <a href="mailto:dnlynxcons@gmail.com" class="contact-item">
+                    <a href="mailto:nm.mathsandscience@gmail.com" class="contact-item">
                         <span>📧</span>
-                        dnlynxcons@gmail.com
+                        <span>nm.mathsandscience</span>
+                        <span>@gmail.com</span>
                     </a>
                 </div>
+
+                <p style="margin: 30px 0 10px; font-size: 1.1rem; color: #555; font-weight: 600;">Payment via UK Bank Transfer or Wise</p>
+                <p style="margin: 0 0 20px; font-size: 1rem; color: #666;">International payments available as well</p>
+                <p style="margin: 0 0 20px; font-size: 1.1rem; color: #555; font-weight: 600;">NM Maths and Science Ltd</p>
 
                 <p style="margin: 30px 0 20px; font-size: 1.1rem; color: #555;">Online lessons available via:</p>
                 <div class="platform-tags">
                     <span class="platform-tag">Zoom</span>
                     <span class="platform-tag">Google Meet</span>
                     <span class="platform-tag">Microsoft Teams</span>
-                    <span class="platform-tag">And more platforms</span>
                 </div>
             </section>
         </div>
@@ -554,7 +737,7 @@ Language of instruction: English or Russian with English terminology.</p>
                         <h1>Надя</h1>
                         <p class="subtitle">Эксперт-преподаватель математики</p>
                         <div class="experience-badge">8 лет успешного преподавания</div>
-                        <p style="margin-top: 15px; font-size: 1.1rem; color: #555;">Проживаю в Великобритании 20 лет • Онлайн-уроки </p>
+                        <p style="margin-top: 15px; font-size: 1.1rem; color: #555; text-align: center;">Проживаю в Великобритании 20 лет • Онлайн-уроки </p>
                     </div>
                     <div class="student-container">
                         <div class="student-photo"></div>
@@ -598,20 +781,26 @@ Language of instruction: English or Russian with English terminology.</p>
                 <div class="contact-methods">
                     <a href="https://wa.me/447402532488" class="contact-item">
                         <span>📱</span>
-                        WhatsApp: +44 7402 532488
+                        <span>WhatsApp:</span>
+                        <span>+44 7402 532488</span>
+                        <span style="font-size: 0.9rem; font-style: italic;">Text only, please</span>
                     </a>
-                    <a href="mailto:dnlynxcons@gmail.com" class="contact-item">
+                    <a href="mailto:nm.mathsandscience@gmail.com" class="contact-item">
                         <span>📧</span>
-                        dnlynxcons@gmail.com
+                        <span>nm.mathsandscience</span>
+                        <span>@gmail.com</span>
                     </a>
                 </div>
+
+                <p style="margin: 30px 0 10px; font-size: 1.1rem; color: #555; font-weight: 600;">Оплата через UK Bank Transfer или Wise</p>
+                <p style="margin: 0 0 20px; font-size: 1rem; color: #666;">Международные платежи также доступны</p>
+                <p style="margin: 0 0 20px; font-size: 1.1rem; color: #555; font-weight: 600;">NM Maths and Science Ltd</p>
 
                 <p style="margin: 30px 0 20px; font-size: 1.1rem; color: #555;">Онлайн-уроки доступны через:</p>
                 <div class="platform-tags">
                     <span class="platform-tag">Zoom</span>
                     <span class="platform-tag">Google Meet</span>
                     <span class="platform-tag">Microsoft Teams</span>
-                    <span class="platform-tag">И другие платформы</span>
                 </div>
             </section>
         </div>
